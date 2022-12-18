@@ -5,11 +5,10 @@ body.appendChild(container);
 
 
 for( let i = 0; i < (16*16) ; i++) {
-    const squares = document.createElement('div');
-    squares.classList.toggle('squares');
-    container.appendChild(squares);
+    const square = document.createElement('div');
+    square.classList.toggle('squares');
+    container.appendChild(square);
 }
-
 
 const squares = document.querySelectorAll('.squares');
 squares.forEach((square) => {
@@ -17,3 +16,9 @@ squares.forEach((square) => {
         square.classList.add('hover');
     });
 })
+
+const button = document.createElement('button');
+button.textContent = 'New Grid';
+button.classList.toggle('btn');
+body.insertBefore(button, container);
+
