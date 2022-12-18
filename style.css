@@ -27,8 +27,12 @@ body {
     flex-wrap: wrap;
 }
 
-.square {
-    border: 1px solid #333;
+.squares {
+    border: 1px solid #444;
     width: calc(40vw / 16);
     height: calc(40vw / 16);
+}
+
+.hover {
+    background-color: #333;
 }
