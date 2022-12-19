@@ -29,6 +29,9 @@ body.insertBefore(button, container);
 
 button.addEventListener('click', () => {
     let gridSize = prompt('Grid Size (1-100)', '16');
+
+    if ((gridSize < 1) || (gridSize > 100) || (gridSize == null) || (!/^\d+$/.test(gridSize))) return;
+
     deleteGrid();
     updateSize(gridSize);
     hover();
@@ -39,7 +42,6 @@ function deleteGrid() {
         container.removeChild(container.firstChild);
     }
 }
-//width and height fix
 
 function updateSize(gridSize) {
     for( let i = 0; i < (gridSize * gridSize) ; i++) {
