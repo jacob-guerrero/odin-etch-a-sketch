@@ -20,16 +20,24 @@ body {
 }
 
 .btn {
-    margin-bottom: 24px;    
-    padding: 8px 16px;
+    min-width: max-content;  
+    padding: 0.5rem 1rem;
     /* border: 1px solid #333; */
     border-radius: 4px;
 }
 
+.controls {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 #container {
     /* border: 1px solid #333; */
-    width: 40vw;
-    height: 40vw;
+    width: 50vw;
+    height: 50vw;
     display: flex;
     flex-wrap: wrap;
 }
