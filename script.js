@@ -10,6 +10,7 @@ body.insertBefore(controlColor,container);
 const buttonBlack = document.createElement('button');
 buttonBlack.textContent = 'Black';
 buttonBlack.classList.toggle('btn');
+buttonBlack.setAttribute('id', 'black');
 controlColor.appendChild(buttonBlack);
 
 const buttonRgb = document.createElement('button');
@@ -31,11 +32,13 @@ body.appendChild(controlGrid);
 const buttonGrid = document.createElement('button');
 buttonGrid.textContent = 'New Grid';
 buttonGrid.classList.toggle('btn');
+buttonGrid.setAttribute('id', 'new-grid');
 controlGrid.appendChild(buttonGrid);
 
 const buttonClear = document.createElement('button');
 buttonClear.textContent = 'Clear';
 buttonClear.classList.toggle('btn');
+buttonClear.setAttribute('id', 'clear');
 controlGrid.appendChild(buttonClear);
 
 
@@ -64,6 +67,14 @@ selectedButton.forEach(button => {
         }
     });
 })
+
+buttonClear.addEventListener('click', () => {
+    const squares = document.querySelectorAll('.squares');
+    squares.forEach((square) => {
+        square.style.backgroundColor = '';
+    });
+});
+
 
 function deleteGrid() {
     while (container.firstChild) {
