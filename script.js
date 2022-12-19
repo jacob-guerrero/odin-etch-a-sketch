@@ -47,7 +47,7 @@ buttonGrid.addEventListener('click', () => {
 
     deleteGrid();
     updateSize(gridSize);
-    rgb();
+    shades();
 })
 
 function deleteGrid() {
@@ -81,6 +81,17 @@ function rgb() {
         square.addEventListener('mouseenter', () => {
             let randomColor = Math.floor(Math.random()*16777215).toString(16);
             square.style.backgroundColor = `#${randomColor}`;
+        });
+    });
+}
+
+function shades() {
+    const squares = document.querySelectorAll('.squares');
+    squares.forEach((square) => {
+        let shade = 100;
+        square.addEventListener('mouseenter', () => {
+            shade -= 10;
+            square.style.backgroundColor = `hsl(0, 0%, ${shade}%)`;
         });
     });
 }
