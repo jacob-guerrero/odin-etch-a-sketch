@@ -36,8 +36,6 @@ body {
 
 .squares {
     border: 1px solid #444;
-    width: calc(40vw / 16);
-    height: calc(40vw / 16);
 }
 
 .hover {

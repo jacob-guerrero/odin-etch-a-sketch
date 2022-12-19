@@ -7,6 +7,8 @@ body.appendChild(container);
 for( let i = 0; i < (16*16) ; i++) {
     const square = document.createElement('div');
     square.classList.toggle('squares');
+    square.setAttribute('style', `width: calc(40vw / 16); 
+                        height: calc(40vw / 16)`);
     container.appendChild(square);
 }
 hover();
@@ -37,13 +39,14 @@ function deleteGrid() {
         container.removeChild(container.firstChild);
     }
 }
+//width and height fix
 
 function updateSize(gridSize) {
-    for( let i = 0; i < (gridSize*gridSize) ; i++) {
+    for( let i = 0; i < (gridSize * gridSize) ; i++) {
         const square = document.createElement('div');
         square.classList.toggle('squares');
+        square.setAttribute('style', `width: calc(40vw / ${gridSize}); 
+                            height: calc(40vw / ${gridSize})`);
         container.appendChild(square);
     }
 }
-
-//width and height fix
