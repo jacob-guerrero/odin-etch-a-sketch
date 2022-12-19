@@ -4,7 +4,7 @@ container.setAttribute('id','container');
 body.appendChild(container);
 
 const controlColor = document.createElement('div');
-controlColor.setAttribute('class','controls');
+controlColor.classList.add('controls');
 body.insertBefore(controlColor,container);
 
 const buttonBlack = document.createElement('button');
@@ -23,13 +23,13 @@ buttonShade.classList.toggle('btn');
 controlColor.appendChild(buttonShade);
 
 const controlGrid = document.createElement('div');
-controlGrid.setAttribute('class','controls');
+controlGrid.classList.add('controls');
 body.appendChild(controlGrid);
 
-const button = document.createElement('button');
-button.textContent = 'New Grid';
-button.classList.toggle('btn');
-controlGrid.appendChild(button);
+const buttonGrid = document.createElement('button');
+buttonGrid.textContent = 'New Grid';
+buttonGrid.classList.toggle('btn');
+controlGrid.appendChild(buttonGrid);
 
 const buttonClear = document.createElement('button');
 buttonClear.textContent = 'Clear';
@@ -40,14 +40,14 @@ controlGrid.appendChild(buttonClear);
 updateSize(16);
 hover();
 
-button.addEventListener('click', () => {
+buttonGrid.addEventListener('click', () => {
     let gridSize = prompt('Grid Size (1-100)', '16');
 
     if ((gridSize < 1) || (gridSize > 100) || (gridSize == null) || (!/^\d+$/.test(gridSize))) return;
 
     deleteGrid();
     updateSize(gridSize);
-    hover();
+    rgb();
 })
 
 function deleteGrid() {
@@ -71,6 +71,16 @@ function hover() {
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
             square.classList.add('hover');
+        });
+    });
+}
+
+function rgb() {
+    const squares = document.querySelectorAll('.squares');
+    squares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            square.style.backgroundColor = `#${randomColor}`;
         });
     });
 }
