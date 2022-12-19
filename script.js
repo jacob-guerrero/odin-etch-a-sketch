@@ -15,11 +15,13 @@ controlColor.appendChild(buttonBlack);
 const buttonRgb = document.createElement('button');
 buttonRgb.textContent = 'Rainbow';
 buttonRgb.classList.toggle('btn');
+buttonRgb.setAttribute('id', 'rainbow');
 controlColor.appendChild(buttonRgb);
 
 const buttonShade = document.createElement('button');
 buttonShade.textContent = 'Shades';
 buttonShade.classList.toggle('btn');
+buttonShade.setAttribute('id', 'shades');
 controlColor.appendChild(buttonShade);
 
 const controlGrid = document.createElement('div');
@@ -47,7 +49,20 @@ buttonGrid.addEventListener('click', () => {
 
     deleteGrid();
     updateSize(gridSize);
-    shades();
+})
+
+const selectedButton = document.querySelectorAll('button');
+selectedButton.forEach(button => {
+    button.addEventListener('click', (e) => {
+        let target = e.target.id;
+        if (target == 'rainbow') {
+            rgb();
+        } else if (target == 'shades') {
+            shades();
+        } else {
+            hover();
+        }
+    });
 })
 
 function deleteGrid() {
@@ -70,7 +85,7 @@ function hover() {
     const squares = document.querySelectorAll('.squares');
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
-            square.classList.add('hover');
+            square.style.backgroundColor = '#070707';
         });
     });
 }
