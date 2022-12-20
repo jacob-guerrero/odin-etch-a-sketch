@@ -83,7 +83,14 @@ buttonClear.addEventListener('click', () => {
     const squares = document.querySelectorAll('.squares');
     squares.forEach((square) => {
         square.style.backgroundColor = '';
-        /* shades(); */ //if shades is activated
+        
+        if (buttonShade.classList.contains('active')) {
+            let shade = 100;
+            square.addEventListener('mouseenter', () => {
+            shade -= 10;
+            square.style.backgroundColor = `hsl(0, 0%, ${shade}%)`;
+            });
+        };
     });
 });
 
