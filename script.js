@@ -52,6 +52,15 @@ buttonGrid.addEventListener('click', () => {
 
     deleteGrid();
     updateSize(gridSize);
+
+    if (buttonRgb.classList.contains('active')) {
+        rgb();
+    } else if (buttonShade.classList.contains('active')) {
+        shades();
+    } else {
+        hover();
+    }
+
 })
 
 const selectedButton = document.querySelectorAll('button.colors');
