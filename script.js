@@ -9,19 +9,19 @@ body.insertBefore(controlColor,container);
 
 const buttonBlack = document.createElement('button');
 buttonBlack.textContent = 'Black';
-buttonBlack.classList.toggle('btn');
+buttonBlack.classList.add('btn', 'colors', 'active');
 buttonBlack.setAttribute('id', 'black');
 controlColor.appendChild(buttonBlack);
 
 const buttonRgb = document.createElement('button');
 buttonRgb.textContent = 'Rainbow';
-buttonRgb.classList.toggle('btn');
+buttonRgb.classList.add('btn', 'colors');
 buttonRgb.setAttribute('id', 'rainbow');
 controlColor.appendChild(buttonRgb);
 
 const buttonShade = document.createElement('button');
 buttonShade.textContent = 'Shades';
-buttonShade.classList.toggle('btn');
+buttonShade.classList.add('btn', 'colors');
 buttonShade.setAttribute('id', 'shades');
 controlColor.appendChild(buttonShade);
 
@@ -54,24 +54,36 @@ buttonGrid.addEventListener('click', () => {
     updateSize(gridSize);
 })
 
-const selectedButton = document.querySelectorAll('button');
+const selectedButton = document.querySelectorAll('button.colors');
 selectedButton.forEach(button => {
     button.addEventListener('click', (e) => {
+        updateColor();
+        
         let target = e.target.id;
         if (target == 'rainbow') {
+            e.currentTarget.classList.add('active');
             rgb();
         } else if (target == 'shades') {
+            e.currentTarget.classList.add('active');
             shades();
         } else {
+            e.currentTarget.classList.add('active');
             hover();
         }
     });
 })
 
+function updateColor() {
+    selectedButton.forEach(button => {
+        button.classList.remove('active')
+    })
+}
+
 buttonClear.addEventListener('click', () => {
     const squares = document.querySelectorAll('.squares');
     squares.forEach((square) => {
         square.style.backgroundColor = '';
+        /* shades(); */ //if shades is activated
     });
 });
 

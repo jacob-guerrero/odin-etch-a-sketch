@@ -45,3 +45,7 @@ body {
 .squares {
     border: 1px solid #444;
 }
+
+.active {
+    background-color: lightcyan;
+}
