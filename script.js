@@ -3,6 +3,10 @@ const container = document.createElement('div');
 container.setAttribute('id','container');
 body.appendChild(container);
 
+const h1 = document.createElement('h1');
+h1.textContent = 'Etch a Sketch';
+body.insertBefore(h1, container);
+
 const controlColor = document.createElement('div');
 controlColor.classList.add('controls');
 body.insertBefore(controlColor,container);
