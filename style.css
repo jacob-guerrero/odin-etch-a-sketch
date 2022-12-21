@@ -116,6 +116,3 @@ h1 {
     transform: translateY(2px);
     transition-duration: .35s;
 }
-
-
-/* https://stackoverflow.com/questions/60501309/javascript-apply-different-styles-to-same-element-based-on-media-query */

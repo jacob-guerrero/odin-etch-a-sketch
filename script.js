@@ -183,3 +183,29 @@ function shades() {
         });
     });
 }
+
+/* Fix container responsiveness */
+window.addEventListener('resize', () => {
+    if(window.innerWidth >= 1000) {
+        document.querySelector('body').style.backgroundColor = 'pink';
+
+        const squares = document.querySelectorAll('.squares');
+        const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
+        container.setAttribute('style', 'width: 30vw; height: 30vw');
+        squares.forEach((square) => {
+            square.setAttribute('style', `width: calc(30vw / ${numberSquares}); 
+                    height: calc(30vw / ${numberSquares})`);
+        });
+
+    } else {
+        document.querySelector('body').style.backgroundColor = 'beige';
+
+        const squares = document.querySelectorAll('.squares');
+        const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
+        container.setAttribute('style', 'width: 50vw; height: 50vw');
+        squares.forEach((square) => {
+            square.setAttribute('style', `width: calc(50vw / ${numberSquares}); 
+                height: calc(50vw / ${numberSquares})`);
+        });
+    }
+});
