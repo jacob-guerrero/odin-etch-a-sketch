@@ -1,16 +1,26 @@
 const body = document.querySelector('body');
-const container = document.createElement('div');
-container.setAttribute('id','container');
-body.appendChild(container);
 
+// title
 const h1 = document.createElement('h1');
 h1.textContent = 'Etch a Sketch';
-body.insertBefore(h1, container);
+body.appendChild(h1);
 
+// Parent main
+const main = document.createElement('div');
+main.setAttribute('id','main');
+body.appendChild(main);
+
+// Container squares
+const container = document.createElement('div');
+container.setAttribute('id','container');
+main.appendChild(container);
+
+// Parent Color Buttons
 const controlColor = document.createElement('div');
 controlColor.classList.add('controls');
-body.insertBefore(controlColor,container);
+main.insertBefore(controlColor,container);
 
+// Color Buttons
 const buttonBlack = document.createElement('button');
 buttonBlack.textContent = 'Black';
 buttonBlack.classList.add('btn', 'colors', 'active');
@@ -29,10 +39,12 @@ buttonShade.classList.add('btn', 'colors');
 buttonShade.setAttribute('id', 'shades');
 controlColor.appendChild(buttonShade);
 
+// Parent Control Buttons
 const controlGrid = document.createElement('div');
 controlGrid.classList.add('controls');
-body.appendChild(controlGrid);
+main.appendChild(controlGrid);
 
+// Control Buttons
 const buttonGrid = document.createElement('button');
 buttonGrid.textContent = 'New Grid';
 buttonGrid.classList.toggle('btn');
