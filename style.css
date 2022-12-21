@@ -116,3 +116,13 @@ h1 {
     transform: translateY(2px);
     transition-duration: .35s;
 }
+
+@media (min-width: 1600px) {
+    #title {
+        height: 15vh;
+    }
+    #main {
+        height: 85vh;
+        margin-bottom: 0vh;
+    }
+}

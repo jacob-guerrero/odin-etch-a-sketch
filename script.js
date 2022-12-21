@@ -134,18 +134,14 @@ function updateSize(gridSize) {
         const square = document.createElement('div');
         square.classList.toggle('squares');
 
-        if(window.innerWidth >= 1000) {
-            document.querySelector('body').style.backgroundColor = 'pink';
-
+        if(window.innerWidth >= 900) {
             container.setAttribute('style', 'width: 30vw; height: 30vw');
             square.setAttribute('style', `width: calc(30vw / ${gridSize}); 
-                height: calc(30vw / ${gridSize})`);
+                                height: calc(30vw / ${gridSize})`);
         } else {
-            document.querySelector('body').style.backgroundColor = 'beige';
-    
             container.setAttribute('style', 'width: 50vw; height: 50vw')
-                square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
-                height: calc(50vw / ${gridSize})`);
+            square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
+                                height: calc(50vw / ${gridSize})`);
         }
 
         /* square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
@@ -186,26 +182,38 @@ function shades() {
 
 /* Fix container responsiveness */
 window.addEventListener('resize', () => {
-    if(window.innerWidth >= 1000) {
-        document.querySelector('body').style.backgroundColor = 'pink';
-
+    if(window.innerWidth >= 1250) {
         const squares = document.querySelectorAll('.squares');
         const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
         container.setAttribute('style', 'width: 30vw; height: 30vw');
         squares.forEach((square) => {
             square.setAttribute('style', `width: calc(30vw / ${numberSquares}); 
-                    height: calc(30vw / ${numberSquares})`);
+                                height: calc(30vw / ${numberSquares})`);
         });
 
-    } else {
-        document.querySelector('body').style.backgroundColor = 'beige';
-
+    } else if (window.innerWidth >= 1000) {
+        const squares = document.querySelectorAll('.squares');
+        const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
+        container.setAttribute('style', 'width: 40vw; height: 40vw');
+        squares.forEach((square) => {
+            square.setAttribute('style', `width: calc(40vw / ${numberSquares}); 
+                                height: calc(40vw / ${numberSquares})`);
+        });
+    } else if(window.innerWidth >= 700) {
         const squares = document.querySelectorAll('.squares');
         const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
         container.setAttribute('style', 'width: 50vw; height: 50vw');
         squares.forEach((square) => {
             square.setAttribute('style', `width: calc(50vw / ${numberSquares}); 
-                height: calc(50vw / ${numberSquares})`);
+                                height: calc(50vw / ${numberSquares})`);
+        });
+    } else {
+        const squares = document.querySelectorAll('.squares');
+        const numberSquares = Math.sqrt(document.getElementById('container').childElementCount);
+        container.setAttribute('style', 'width: 70vw; height: 70vw');
+        squares.forEach((square) => {
+            square.setAttribute('style', `width: calc(70vw / ${numberSquares}); 
+                                height: calc(70vw / ${numberSquares})`);
         });
     }
 });
