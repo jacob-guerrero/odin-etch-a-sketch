@@ -59,16 +59,21 @@ h1 {
     width: 5.5rem;
     padding: 0.5rem 0;
     /* border: 1px solid #333; */
+    border-style: none;
+    box-shadow: #2778ae26 0 4px 9px;
+    cursor: pointer;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
 }
 
 .change {
     font-size: 1.1rem;
     width: 6.5rem;
-    padding: 0.8rem 0;
-    background-color: #fefae0;
+    padding: 0.6rem 0;
+    background-color: #fdedc5;
     /* border: 1px solid #333; */
     border-style: none;
-    box-shadow: #2778ae26 0 4px 9px;
+    box-shadow: #0d4b7534 0 4px 9px;
     cursor: pointer;
     transform: translate3d(0, 0, 0);
     transition: all .3s;
@@ -88,20 +93,28 @@ h1 {
 
 .active {
     background-color: rgb(255, 209, 157);
+    box-shadow: #eeb985 0 3px 6px;
+    transform: translateY(-2px);
 }
 
 
+.colors:hover {
+    opacity: 1;
+    transition-duration: .35s;
+    box-shadow: #eeb985 0 3px 6px;
+}
+
 .change:hover {
-  background-color: #faedcd;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
-  box-shadow: #eeb985 0 6px 12px;
+    background-color: #f8e6b8;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+    box-shadow: #eeb985 0 6px 12px;
 }
 
 .change:active {
-  transform: translateY(2px);
-  transition-duration: .35s;
+    transform: translateY(2px);
+    transition-duration: .35s;
 }
 
 
