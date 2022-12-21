@@ -133,8 +133,23 @@ function updateSize(gridSize) {
     for( let i = 0; i < (gridSize * gridSize) ; i++) {
         const square = document.createElement('div');
         square.classList.toggle('squares');
-        square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
-                            height: calc(50vw / ${gridSize})`);
+
+        if(window.innerWidth >= 1000) {
+            document.querySelector('body').style.backgroundColor = 'pink';
+
+            container.setAttribute('style', 'width: 30vw; height: 30vw');
+            square.setAttribute('style', `width: calc(30vw / ${gridSize}); 
+                height: calc(30vw / ${gridSize})`);
+        } else {
+            document.querySelector('body').style.backgroundColor = 'beige';
+    
+            container.setAttribute('style', 'width: 50vw; height: 50vw')
+                square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
+                height: calc(50vw / ${gridSize})`);
+        }
+
+        /* square.setAttribute('style', `width: calc(50vw / ${gridSize}); 
+                            height: calc(50vw / ${gridSize})`); */
         container.appendChild(square);
     }
 }
