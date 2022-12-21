@@ -1,9 +1,12 @@
 const body = document.querySelector('body');
 
 // title
+const parentTitle = document.createElement('div');
+parentTitle.setAttribute('id','title');
+body.appendChild(parentTitle);
 const h1 = document.createElement('h1');
 h1.textContent = 'Etch a Sketch';
-body.appendChild(h1);
+parentTitle.appendChild(h1);
 
 // Parent main
 const main = document.createElement('div');
@@ -47,13 +50,13 @@ main.appendChild(controlGrid);
 // Control Buttons
 const buttonGrid = document.createElement('button');
 buttonGrid.textContent = 'New Grid';
-buttonGrid.classList.toggle('btn');
+buttonGrid.classList.add('btn', 'change');
 buttonGrid.setAttribute('id', 'new-grid');
 controlGrid.appendChild(buttonGrid);
 
 const buttonClear = document.createElement('button');
 buttonClear.textContent = 'Clear';
-buttonClear.classList.toggle('btn');
+buttonClear.classList.add('btn', 'change');
 buttonClear.setAttribute('id', 'clear');
 controlGrid.appendChild(buttonClear);
 
